@@ -9,6 +9,7 @@ import { Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import taskImage from '../../assets/871bda872e968916ff02ae20757e478f.gif'
 import fruitImage from '../../assets/303fff16bcb3b75de2881949fe2a9451c1fcc973.gif'
+import gifImage from '../../assets/unnamed.png'
 
 export default function Projects() {
   const colorTheme = useSelector((state) => state.mode.colorTheme)
@@ -64,10 +65,10 @@ export default function Projects() {
             delay={1.3}
           />
           <ProjectCard
-            title="Morse in one"
-            description="A npm package that converts morse code to text and vice versa. It is written in JavaScript."
-            image={morseIcon}
-            link="https://github.com/iamBijoyKar/morse-in-one"
+            title="Random Gif Generator"
+            description="Random GIF Generator is a fun and interactive tool that fetches and displays random GIFs from the internet based on keywords or completely at random. With just a click, users can explore endless funny, cute, trending, or surprising GIFs, making it perfect for entertainment, creativity, or simply brightening your day. Powered by dynamic APIs, the Random GIF Generator offers a fast, seamless, and exciting experience every time you use it! 🎞️✨😂"
+            image={gifImage}
+            link="http://680fc2443534570f8d8316d0--famous-sawine-929a57.netlify.app/"
             delay={1.6}
           />
         </div>

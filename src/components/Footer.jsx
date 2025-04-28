@@ -63,18 +63,18 @@ export default function Footer() {
         style={{ backgroundColor: colorTheme.primaryText, height: '1.5px' }}
       />
       <div className="flex gap-4 justify-center lg:justify-end w-full ">
-        <Link className=" " to="https://github.com/iamBijoyKar">
+        <Link className=" " to="https://github.com/Prince12222211">
           <BsGithub className="text-2xl inline-block mr-2" />
           GitHub
         </Link>
-        <Link to="https://www.linkedin.com/in/iambijoykar/">
+        <Link to="https://www.linkedin.com/in/princeverma2306/">
           <BsLinkedin className="text-2xl inline-block mr-2" />
           LinkedIn
         </Link>
-        <Link to="https://twitter.com/iamBijoyKar">
+        {/* <Link to="https://twitter.com/iamBijoyKar">
           <BsTwitter className="text-2xl inline-block  mr-2" />
           Twitter
-        </Link>
+        </Link> */}
       </div>
     </footer>
   )

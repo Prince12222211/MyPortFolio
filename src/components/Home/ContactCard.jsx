@@ -1,49 +1,48 @@
 import React from 'react'
-import { PropTypes } from 'prop-types'
+import PropTypes from 'prop-types'
 import { useSelector } from 'react-redux'
 import { Card, CardContent, CardActionArea } from '@mui/material'
 
-ContactCard.propTypes = {
-  icon: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  dropShadow: PropTypes.string,
-  link: PropTypes.string.isRequired,
-}
-
-ContactCard.defaultProps = {
-  dropShadow: '0px 0px 10px #45CFDDA5',
-  icon: '',
-  text: '@iamBijoyKar',
-  link: '',
-}
-
 export default function ContactCard({ icon, text, dropShadow, link }) {
-  //   const darkMode = useSelector((state) => state.mode.darkMode)
+  const darkMode = useSelector((state) => state.mode.darkMode)
   const colorTheme = useSelector((state) => state.mode.colorTheme)
+
   const handleClick = () => {
-    setTimeout(() => {
+    if (link) {
       window.open(link, '_blank')
-    }, 1000)
+    }
   }
+
   return (
     <Card
       onClick={handleClick}
-      className=""
-      style={{ backgroundColor: colorTheme.secondaryBg }}
+      className="cursor-pointer"
+      style={{
+        backgroundColor: colorTheme.secondaryBg,
+        boxShadow: darkMode
+          ? '0 0 10px rgba(255,255,255,0.1)'
+          : '0 0 10px rgba(0,0,0,0.1)',
+      }}
     >
       <CardActionArea>
         <CardContent
           sx={{
-            padding: '.5rem',
-            paddingBottom: '.5rem !important',
+            padding: '0.5rem',
+            paddingBottom: '0.5rem !important',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '0.5rem',
           }}
-          className="p-2"
         >
           <img
-            style={{ filter: `drop-shadow(${dropShadow})` }}
             src={icon}
-            width={100}
-            alt=""
+            alt="social-icon"
+            width={50}
+            height={50}
+            style={{
+              filter: `drop-shadow(${dropShadow})`,
+            }}
           />
           <span
             style={{ color: colorTheme.primaryText }}
@@ -55,4 +54,15 @@ export default function ContactCard({ icon, text, dropShadow, link }) {
       </CardActionArea>
     </Card>
   )
+}
+
+ContactCard.propTypes = {
+  icon: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  dropShadow: PropTypes.string,
+  link: PropTypes.string.isRequired,
+}
+
+ContactCard.defaultProps = {
+  dropShadow: '0px 0px 10px #45CFDDA5',
 }
